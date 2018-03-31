@@ -4,12 +4,12 @@ import xlwt
 from ironicclient import client
 
 # Global configurations for ironic
-IRONIC_ENDPOINT = 'http://192.168.11.24:6385/'
+IRONIC_ENDPOINT = 'http://127.0.0.1:6385/'
 DEFAULT_IRONIC_API_VERSION = '1.11'
 
 # Global variables for excel
 EXCEL_FILE = 'env_info.xls'
-VALID_FIELDS = ['index', 'region', 'sn', 'ipmi_addr', 'role', 'mgm_nic1',
+VALID_FIELDS = ['index', 'region', 'uuid', 'sn', 'ipmi_addr', 'role', 'mgm_nic1',
              'mgm_nic2', 'mgm_ip', 'inter_nic1', 'inter_nic2', 'inter_ip',
              'busi_nic1', 'busi_nic2', 'stp_nic1', 'stp_nic2', 'stp_ip',
              'stc_nic1', 'stc_nic2', 'stc_ip', 'desc']
@@ -39,7 +39,7 @@ def prepare_info():
     node_list = icl.node.list()
 
     # Init workbook
-    style0 = xlwt.easyxf('font: name Times New Roman, color-index red,'
+    style0 = xlwt.easyxf('font: name Times New Roman,'
                          ' bold on', num_format_str='#,##0.00')
     wb = xlwt.Workbook()
     ws = wb.add_sheet('node info')
@@ -63,9 +63,11 @@ def prepare_info():
         disk_num = len(node_info.extra['disk_detailed'])
         desc = str(lcpu_num) + ' lcpu, ' + str(mem_cap_gb) + 'GB mem, ' + \
             str(nic_num) + ' nics, ' + str(disk_num) + ' disks'
-        ws.write(row, 2, sn, style0)
-        ws.write(row, 3, ipmi_addr, style0)
-        ws.write(row, 19, desc, style0)
+        ws.write(row, 0, row)
+        ws.write(row, 2, node.uuid, style0)
+        ws.write(row, 3, sn, style0)
+        ws.write(row, 4, ipmi_addr, style0)
+        ws.write(row, 20, desc, style0)
         row += 1
 
     wb.save(EXCEL_FILE)
@@ -76,11 +78,11 @@ def main():
         print_helper()
         exit(0)
 
-    if sys.argv[2] not in ['prepare', 'generate']:
+    if sys.argv[1] not in ['prepare', 'generate']:
         print("Please input correct action, value: prepare, generate.")
         exit(1)
 
-    if sys.argv[2] is 'prepare':
+    if sys.argv[1] == 'prepare':
         prepare_info()
         exit(0)
 
