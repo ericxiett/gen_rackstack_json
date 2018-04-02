@@ -19,7 +19,7 @@ VALID_FIELDS = ['index', 'region', 'uuid', 'sn', 'ipmi_addr', 'role',
                 'busi_nic1', 'busi_nic2', 'busi_vid',
                 'stp_nic1', 'stp_nic2', 'stp_ip', 'stp_netmask', 'stp_vid',
                 'stc_nic1', 'stc_nic2', 'stc_ip', 'stc_netmask', 'stc_vid',
-                'desc', 'hostname', 'openstack_version',
+                'desc', 'hostname',
                 'ntp_server', 'intervip', 'managevip']
 
 # Global variables for env
@@ -70,7 +70,6 @@ def _parse_nic_info(node_info):
         if nic['has_carrier'] != True:
             continue
 
-        print('nic raw: ', nic)
         nic_info = {}
         nic_info['name'] = nic['name']
         nic_info['mac'] = nic['mac_address']
@@ -136,6 +135,9 @@ def prepare_info():
         row += 1
 
     wb.save(EXCEL_FILE)
+
+    print("Prepare initial excel file env_info.xls successfully!")
+    print('Please update needed fields, and then execute generate!')
 
 
 def generate_json():
@@ -290,6 +292,8 @@ def generate_json():
 
         index += 1
 
+    print('Generate json files of env successfully!')
+    print('Please check it and use it for RackStack Deployment API!')
 
 def main():
     if len(sys.argv) < 2:
