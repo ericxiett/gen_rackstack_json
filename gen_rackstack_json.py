@@ -194,10 +194,12 @@ def generate_json():
             component = ''
             for r in role.split(','):
                 for el in COMS[r].split(','):
-                    if el not in component:
+                    if el not in component and component == '':
+                        component = el
+                    else:
                         component = component + ',' + el
             node['component'] = component
-            if ('ceph-mon' or 'ceph-osd') in role:
+            if 'ceph-mon' in role or 'ceph-osd' in role:
                 role = 'storage'
             node['type'] = role
             node['ntp_server_ip'] = \
