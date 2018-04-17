@@ -9,7 +9,7 @@
         "nettype": "vxlan,vlan",
         "nodes": [
             {
-                "component": ",db,rabbitmq,keystone,glance-api,glance-registry,nova-api,nova-conductor,nova-consoleauth,nova-novncproxy,nova-scheduler,neutron-server,cinder-api,cinder-scheduler,cinder-volume",
+                "component": "db,rabbitmq,keystone,glance-api,glance-registry,nova-api,nova-conductor,nova-consoleauth,nova-novncproxy,nova-scheduler,neutron-server,cinder-api,cinder-scheduler,cinder-volume",
                 "hostname": "controller1",
                 "intervip": "2.2.2.222",
                 "managevip": "1.1.1.111",
@@ -72,7 +72,7 @@
                 "uuid": "c52c8930-2c1b-441e-91b7-eeab93512eb6"
             },
             {
-                "component": ",db,rabbitmq,keystone,glance-api,glance-registry,nova-api,nova-conductor,nova-consoleauth,nova-novncproxy,nova-scheduler,neutron-server,cinder-api,cinder-scheduler,cinder-volume",
+                "component": "db,rabbitmq,keystone,glance-api,glance-registry,nova-api,nova-conductor,nova-consoleauth,nova-novncproxy,nova-scheduler,neutron-server,cinder-api,cinder-scheduler,cinder-volume",
                 "hostname": "controller2",
                 "intervip": "2.2.2.222",
                 "managevip": "1.1.1.111",
@@ -135,7 +135,7 @@
                 "uuid": "fb644b22-f111-4413-a386-7aeaea80b3cb"
             },
             {
-                "component": ",db,rabbitmq,keystone,glance-api,glance-registry,nova-api,nova-conductor,nova-consoleauth,nova-novncproxy,nova-scheduler,neutron-server,cinder-api,cinder-scheduler,cinder-volume",
+                "component": "db,rabbitmq,keystone,glance-api,glance-registry,nova-api,nova-conductor,nova-consoleauth,nova-novncproxy,nova-scheduler,neutron-server,cinder-api,cinder-scheduler,cinder-volume",
                 "hostname": "controller3",
                 "intervip": "2.2.2.222",
                 "managevip": "1.1.1.111",
@@ -198,7 +198,7 @@
                 "uuid": "ab671ac2-7777-4113-8bd0-9ff60d833b38"
             },
             {
-                "component": ",neutron-metadata-agent,neutron-dhcp-agent,neutron-l3-agent,neutron-openvswitch-agent,nova-compute",
+                "component": "neutron-metadata-agent,neutron-dhcp-agent,neutron-l3-agent,neutron-openvswitch-agent,nova-compute,neutron-openvswitch-agent",
                 "hostname": "network1",
                 "intervip": "2.2.2.222",
                 "managevip": "1.1.1.111",
@@ -261,7 +261,7 @@
                 "uuid": "83f2facf-e252-4bf5-b9f9-5bb5748c2eb1"
             },
             {
-                "component": ",neutron-metadata-agent,neutron-dhcp-agent,neutron-l3-agent,neutron-openvswitch-agent,nova-compute",
+                "component": "neutron-metadata-agent,neutron-dhcp-agent,neutron-l3-agent,neutron-openvswitch-agent,nova-compute,neutron-openvswitch-agent",
                 "hostname": "network2",
                 "intervip": "2.2.2.222",
                 "managevip": "1.1.1.111",
@@ -324,7 +324,7 @@
                 "uuid": "67b45776-75b5-4440-be24-138274a10ef3"
             },
             {
-                "component": ",nova-compute,neutron-openvswitch-agent",
+                "component": "nova-compute,neutron-openvswitch-agent",
                 "hostname": "compute1",
                 "intervip": "2.2.2.222",
                 "managevip": "1.1.1.111",
@@ -387,7 +387,7 @@
                 "uuid": "840c5fe8-dee0-4104-9d98-eb8842d3cd21"
             },
             {
-                "component": ",nova-compute,neutron-openvswitch-agent",
+                "component": "nova-compute,neutron-openvswitch-agent",
                 "hostname": "compute2",
                 "intervip": "2.2.2.222",
                 "managevip": "1.1.1.111",
@@ -450,7 +450,7 @@
                 "uuid": "eaa0e8d0-a201-4b44-862f-c704b80654d1"
             },
             {
-                "component": ",nova-compute,neutron-openvswitch-agent",
+                "component": "nova-compute,neutron-openvswitch-agent",
                 "hostname": "compute3",
                 "intervip": "2.2.2.222",
                 "managevip": "1.1.1.111",
@@ -513,7 +513,7 @@
                 "uuid": "bedc0f0c-1e1e-4924-8645-3c7a75c9dd54"
             },
             {
-                "component": ",ceph-mon,ceph-osd",
+                "component": "ceph-mon,ceph-osd",
                 "hostname": "ceph1",
                 "intervip": "2.2.2.222",
                 "managevip": "1.1.1.111",
@@ -576,7 +576,7 @@
                 "uuid": "a512bbb8-3cf1-4636-a5ac-13924732311a"
             },
             {
-                "component": ",ceph-mon,ceph-osd",
+                "component": "ceph-mon,ceph-osd",
                 "hostname": "ceph2",
                 "intervip": "2.2.2.222",
                 "managevip": "1.1.1.111",
@@ -639,7 +639,7 @@
                 "uuid": "ca94113f-dc25-44a0-90dc-fc12710fd699"
             },
             {
-                "component": ",ceph-mon,ceph-osd",
+                "component": "ceph-mon,ceph-osd",
                 "hostname": "ceph3",
                 "intervip": "2.2.2.222",
                 "managevip": "1.1.1.111",
@@ -702,7 +702,7 @@
                 "uuid": "4d40f46d-3d3d-4b1d-9868-b757ba9a1d06"
             },
             {
-                "component": ",ceph-osd",
+                "component": "ceph-osd",
                 "hostname": "ceph4",
                 "intervip": "2.2.2.222",
                 "managevip": "1.1.1.111",
@@ -761,7 +761,7 @@
                 "ntp_server_ip": "11.11.11.11",
                 "serialnum": "214593777",
                 "serverid": "9c80ded3-d53c-4cfd-9c81-3983291cc383",
-                "type": "ceph-osd",
+                "type": "storage",
                 "uuid": "9c80ded3-d53c-4cfd-9c81-3983291cc383"
             }
         ],
